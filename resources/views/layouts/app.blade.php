@@ -16,7 +16,7 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <link href="/css/app.css" rel="stylesheet">
+        <link href="{{ url('/css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -63,8 +63,7 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
+                                
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -74,21 +73,24 @@
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
-                                    </li>
-                                </ul>
+                                   
                             </li>
                         @endif
                     </ul>
                 </div>
             </div>
         </nav>
+        @include('layouts.menu')
+
+            
 
         @yield('content')
     </div>
 
     <!-- Scripts -->
+    
+    <script src="{{ url('/js/app.js') }}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="/js/app.js"></script>
 
 </body>
 </html>
