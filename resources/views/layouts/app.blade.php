@@ -12,18 +12,18 @@
 
     <!-- Styles -->
         <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url('/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/bootstrap-theme.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/bootstrap-theme.min.css') }}">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
         <link href="{{ url('/css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
+
+
 </head>
 <body>
     <div id="app">
@@ -41,7 +41,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        DEMACO
                     </a>
                 </div>
 
@@ -58,12 +58,17 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                
+                            <ul class="nav navbar-nav navbar-right">
 
-                                
+                                <li>
+                                <a href="#">
+                                    {{ Auth::user()->name }} 
+                                </a>
+                                </li>
+
+                                <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -73,8 +78,10 @@
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
+                                        </li>   
                                    
-                            </li>
+                            </ul>
+                            </div>
                         @endif
                     </ul>
                 </div>
@@ -90,7 +97,9 @@
     <!-- Scripts -->
     
     <script src="{{ url('/js/app.js') }}"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="{{ url('/js/bootstrap.js') }}"></script>
+    <script src="{{ url('/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('/js/npm.js') }}"></script>
 
 </body>
 </html>
