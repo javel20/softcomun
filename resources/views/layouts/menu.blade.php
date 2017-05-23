@@ -1,8 +1,8 @@
 @if(!(Auth::guest()))
 
 
-<div class="container">
-    <div class="col-sm-4 col-md-3">
+<div class="">
+    <div class=" col-xs-12 col-sm-4 col-md-3">
 		<div class="sidebar-nav menucontorno">
   <div class="navbar navbar-default" role="navigation">
 
@@ -14,7 +14,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <span class="visible-xs navbar-brand">Control Panel</span>
+      <span class="visible-xs navbar-brand">Menu</span>
     </div>
 
 <br>

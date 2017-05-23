@@ -29,7 +29,7 @@
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
-                <div class="navbar-header">
+                <div class="navbar-header bot">
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -56,11 +56,8 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <!--<li><a href="{{ url('/register') }}">Register</a></li>-->
                         @else
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                
-                            <ul class="nav navbar-nav navbar-right">
 
                                 <li>
                                 <a href="#">
