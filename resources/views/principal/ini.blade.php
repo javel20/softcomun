@@ -1,57 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends("layouts.app")
 
-        <title>Laravel</title>
-
-        <!-- Fontsasd -->
-        
-    <link rel="stylesheet" href="{{ url('/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url('/css/bootstrap-theme.css') }}">
-    <link rel="stylesheet" href="{{ url('/css/bootstrap-theme.min.css') }}">
-        <link href="{{ url('/css/app.css') }}" rel="stylesheet">
-        <!-- Styles -->
-   
-
-    </head>
-    <body>
-       
-
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-
-                <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ url('/principal/inicio') }}">DEMACO</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ url('/principal/nosotros') }}">NOSOTROS</a></li>
-                    <li><a href="#">PROYECTOS</a></li>
-                    <li><a href="#">PUBLICACIONES</a></li>
-                    <li><a href="{{ url('/login') }}">INTRANET</a></li>
-                    <li><a href="#">CONTACTO</a></li>
-                    
-                </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
+@section("content")
 
 
-        <div class="container">
+
+<div class="container">
             <div class="row">
                 <div class="col-md-3 colum">
                      ¿Qué es Lorem Ipsum?
@@ -69,27 +22,5 @@ Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el
         </div>
 
 
-    <script src="{{ url('/js/app.js') }}"></script>
-    <script src="{{ url('/js/bootstrap.js') }}"></script>
-    <script src="{{ url('/js/bootstrap.min.js') }}"></script>
-    <script src="{{ url('/js/npm.js') }}"></script>
-
-    </body>
-
-    <footer>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 colum">
-                    REDES SOCIALES
-                </div>
-                <div class="col-md-3 colum">
-                    ETIQUETAS
-                </div>
-                <div class="col-md-3 colum">
-                    CONTACTO
-            </div>
-        </div>
-
-    </footer>
-</html>
+    
+@endsection

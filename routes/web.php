@@ -12,7 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('principal/ini');
+});
+
+Route::get('/principal/ini', function () {
+    return view('/principal/ini');
+});
+
+
+Route::get('/principal/nosotros', function () {
+    return view('/principal/nosotros');
 });
 
 Auth::routes();

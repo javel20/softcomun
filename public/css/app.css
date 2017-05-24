@@ -11,6 +11,19 @@ a{
     color:orange!important;    
 }
 
+.ancho{
+
+    width: 150px!important;
+
+}
+
+.menu{
+    width: 100%;
+    /*color: white !important;*/
+}
+
+
+
 a:hover{
     background: orange!important;
     color:white!important;
@@ -23,3 +36,4 @@ a:hover{
     padding:10px;
     margin:45px;
 }
+

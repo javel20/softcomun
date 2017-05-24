@@ -29,13 +29,14 @@
  
        <li class="menu"> 
 
-            <ul class="nav nav-list">
-            
-                <li>
-                    <a class="menua" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
-                        <span class="glyphicon glyphicon-chevron-right"></span> General <span class=""></span>
-                    </a>
-                </li>
+            <ul class="nav nav-list ">
+                <!--<div class="collapse" id="toggleDemo" style="height: 0px;">-->
+                    <li class="">
+                        <a class="" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
+                            <span class="glyphicon glyphicon-chevron-right"></span> General <span class=""></span>
+                        </a>
+                    </li>
+                <!--</div>-->
 
             </ul>
         </li>
@@ -46,7 +47,7 @@
             <ul class="nav nav-list">
             
                 <li>
-                    <a class="menua" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
+                    <a class="" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
                         <span class="glyphicon glyphicon-chevron-right"></span> Integrantes <span class=""></span>
                     </a>
                 </li>
@@ -59,7 +60,7 @@
             <ul class="nav nav-list">
             
                 <li>
-                    <a class="menua" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
+                    <a class="" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
                         <span class="glyphicon glyphicon-chevron-right"></span> Tareas <span class=""></span>
                     </a>
                 </li>
@@ -72,7 +73,7 @@
             <ul class="nav nav-list">
             
                 <li>
-                    <a class="menua" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
+                    <a class="" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
                         <span class="glyphicon glyphicon-chevron-right"></span> Comunicaciones <span class=""></span>
                     </a>
                 </li>
@@ -86,7 +87,7 @@
             <ul class="nav nav-list">
             
                 <li>
-                    <a class="menua" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
+                    <a class="" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
                         <span class="glyphicon glyphicon-chevron-right"></span> Fotos <span class=""></span>
                     </a>
                 </li>
