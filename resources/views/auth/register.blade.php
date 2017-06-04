@@ -60,6 +60,25 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Trabajador</label>
+                                <div class="col-md-6">
+                                    <select id="trabajador" class="form-control" name="trabajador"  value={{$users->trabajador_id}}>
+                                            <option value="">--seleccionar--</option>
+                                    @foreach ($trabajador as $trab)
+                                            @if($users->trabajador_id==$trab->id)
+                                                <option value={{$trab->id}} selected> {{$trab->nombre}} </option>
+                                                @else
+                                                <option value={{$trab->id}}> {{$trab->nombre}} </option>
+                                            @endif
+                                    @endforeach
+                                    </select>
+                                </div>
+
+                        </div>
+
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
