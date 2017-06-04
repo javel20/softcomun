@@ -21,6 +21,8 @@ class CreateTareasTable extends Migration
             $table->string('fechai',10);
             $table->string('fechaf',10);
             $table->string('estado',80);
+            $table->integer('proyecto_id')->unsigned();
+            $table->foreign('proyecto_id')->references('id')->on('proyectos');
             $table->timestamps();
         });
     }
