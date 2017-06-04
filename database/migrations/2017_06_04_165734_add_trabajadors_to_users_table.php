@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDetalletrabajadorsproyectosTable extends Migration
+class AddTrabajadorsToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateDetalletrabajadorsproyectosTable extends Migration
      */
     public function up()
     {
-        Schema::create('detalletrabajadorsproyectos', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->integer('trabajador_id')->unsigned();
             $table->foreign('trabajador_id')->references('id')->on('trabajadors');
-            $table->integer('proyecto_id')->unsigned();
-            $table->foreign('proyecto_id')->references('id')->on('proyectos');
         });
     }
 
@@ -28,6 +26,8 @@ class CreateDetalletrabajadorsproyectosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalletrabajadorsproyectos');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }
