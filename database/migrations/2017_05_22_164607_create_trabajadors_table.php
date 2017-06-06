@@ -23,6 +23,8 @@ class CreateTrabajadorsTable extends Migration
             $table->string('celular',9);
             $table->string('operador',20)->nullable();
             $table->string('estado',30);
+            $table->integer('tipotrabajador_id')->unsigned();
+            $table->foreign('tipotrabajador_id')->references('id')->on('tipotrabajadors');
             $table->timestamps();
         });
     }
