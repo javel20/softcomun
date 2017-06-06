@@ -1,5 +1,6 @@
 <?php
 
+use hosp\Tipotrabajador;
 use Illuminate\Database\Seeder;
 
 class TrabajadorTableSeeder extends Seeder
