@@ -1,6 +1,6 @@
 <?php
 
-use hosp\User;
+use Softcomun\User;
 
 use Illuminate\Database\Seeder;
 

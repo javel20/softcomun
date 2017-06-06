@@ -3,6 +3,11 @@
 namespace Softcomun\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Softcomun\Http\Requests;
+use Softcomun\User;
+use Softcomun\Trabajador;
+use Softcomun\Acceso;
 
 class UsersController extends Controller
 {

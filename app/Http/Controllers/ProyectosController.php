@@ -3,6 +3,10 @@
 namespace Softcomun\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Softcomun\Http\Requests;
+
+use Softcomun\Proyecto;
+use Softcomun\Tipotrabajador;
 
 class ProyectosController extends Controller
 {

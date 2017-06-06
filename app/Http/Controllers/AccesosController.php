@@ -4,6 +4,11 @@ namespace Softcomun\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Softcomun\Http\Requests;
+use Softcomun\Acceso;
+use Softcomun\Trabajador;
+use Softcomun\User;
+
 class AccesosController extends Controller
 {
     /**

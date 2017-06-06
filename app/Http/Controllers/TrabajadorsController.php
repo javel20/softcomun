@@ -4,6 +4,13 @@ namespace Softcomun\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Softcomun\Http\Requests;
+
+use Softcomun\Trabajador;
+use Softcomun\Tipotrabajador;
+use Softcomun\Proyecto;
+use Softcomun\User;
+
 class TrabajadorsController extends Controller
 {
     /**
