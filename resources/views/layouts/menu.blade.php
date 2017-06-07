@@ -26,6 +26,52 @@
           </a>
          
         </li>
+
+
+
+
+        <li class="menu">
+          <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
+          <span class="glyphicon glyphicon-chevron-right"></span> Proyectos <span class="caret pull-right"></span>
+          </a>
+          <div class="collapse" id="toggleDemo2" style="height: 0px;">
+            <ul class="nav nav-list">
+              <li><a class="menua" href="{{ url('/proyectos/create') }}">Crear</a></li>
+              <li><a class="menua" href="{{ url('/proyectos') }}">Listado</a></li>
+              
+            </ul>
+          </div>
+        </li>
+
+        <li class="menu">
+          <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed">
+          <span class="glyphicon glyphicon-chevron-right"></span> Trabajadores <span class="caret pull-right"></span>
+          </a>
+          <div class="collapse" id="toggleDemo3" style="height: 0px;">
+            <ul class="nav nav-list">
+              <li><a class="menua" href="{{ url('/trabajadors/create') }}">Crear</a></li>
+              <li><a class="menua" href="{{ url('/trabajadors') }}">Listado</a></li>
+              
+            </ul>
+          </div>
+        </li>
+
+
+        <li class="menu">
+          <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
+          <span class="glyphicon glyphicon-chevron-right"></span> Usuarios <span class="caret pull-right"></span>
+          </a>
+          <div class="collapse" id="toggleDemo4" style="height: 0px;">
+            <ul class="nav nav-list">
+              <li><a class="menua" href="{{ url('/users/create') }}">Crear</a></li>
+              <li><a class="menua" href="{{ url('/users') }}">Listado</a></li>
+              
+            </ul>
+          </div>
+        </li>
+
+
+
  
        <li class="menu"> 
 

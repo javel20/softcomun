@@ -40,8 +40,7 @@ class User extends Authenticatable
 
     public function scopeUsers($query)
     {
-        return $query->where('users.estado', '=' ,'Habilitado')
-                    ->select('users.*')
+        return $query->select('users.*')
                     ->get();
 
     }

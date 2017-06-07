@@ -24,6 +24,30 @@ Route::get('/principal/nosotros', function () {
     return view('/principal/nosotros');
 });
 
+
+// ----------------------------
+
+    Route::resource('accesos','AccesosController');
+
+    Route::resource('users','UsersController');
+
+    Route::resource('trabajadors','TrabajadorsController');
+
+    Route::resource('tipotrabajadors','TipotrabajadorsController');
+
+    Route::resource('proyectos','ProyectosController');
+
+    Route::resource('comunicacions','ComunicacionsController');
+
+    Route::resource('tareas','TareasController');
+
+    Route::post('userLogeo','Auth\LoginController@postLogin');
+
+
+
+// --------------------------
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+

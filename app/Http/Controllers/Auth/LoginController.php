@@ -2,8 +2,13 @@
 
 namespace Softcomun\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use Softcomun\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Lang;
+use Validator;
+use Softcomun\User;
 
 class LoginController extends Controller
 {

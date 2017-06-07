@@ -3,6 +3,8 @@
 namespace Softcomun\Http\Controllers\Auth;
 
 use Softcomun\User;
+use Softcomun\Trabajador;
+
 use Softcomun\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -51,7 +53,7 @@ class RegisterController extends Controller
             // 'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-            'trabajador_id' => 'requerid',
+            // 'trabajador_id' => 'requerid',
         ]);
     }
 

@@ -24,15 +24,14 @@ class Trabajador extends Model
 
     public function scopeTrabajadors($query, $dato)
     {
-        return $query->join('locals', 'trabajadors.local_id', '=' ,'locals.id')
-                    ->join('tipotrabajadors', 'trabajadors.tipotrabajador_id', '=' ,'tipotrabajadors.id')
+        return $query->join('tipotrabajadors', 'trabajadors.tipotrabajador_id', '=' ,'tipotrabajadors.id')
                     ->where('trabajadors.nombre','LIKE', "%$dato->buscar%")
                     ->orWhere('trabajadors.apellidopaterno','LIKE', "%$dato->buscar%")
                     ->orWhere('trabajadors.apellidomaterno','LIKE', "%$dato->buscar%")
                     ->orWhere('trabajadors.dni','LIKE', "%$dato->buscar%")
                     ->orWhere('trabajadors.estado','LIKE', "%$dato->buscar%")
                     ->orWhere('tipotrabajadors.nombre','LIKE', "%$dato->buscar%")
-                    ->select('trabajadors.*', 'tipotrabajadors.nombre as nombrett', 'locals.nombre as nombrel')
+                    ->select('trabajadors.*', 'tipotrabajadors.nombre as nombrett')
                     ->paginate(7);
 
     }

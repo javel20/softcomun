@@ -18,7 +18,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::Users();
+        return view("users.index")->with([
+            'users' => $users,
+        ]);
     }
 
     /**
@@ -28,7 +31,16 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        $users = new User;
+        $trabajador = Trabajador::ListaTrabajador();
+        $accesos = Acceso::All();
+
+        return view("auth.register")->with([
+            'users' => $users,
+            'trabajador' => $trabajador,
+            'accesos' => $accesos
+
+        ]);
     }
 
     /**
@@ -39,7 +51,22 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        // dd($request);
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->trabajador_id = $request->trabajador;
+
+
+        if($user->save()){
+            //  dd($user);
+            $user->accesos()->attach($request->accesos);
+            // dd($user);
+            return redirect("/users");
+        }else{
+            //  dd($user);
+            return view("/users.create");
+        }
     }
 
     /**
@@ -48,6 +75,29 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+    public function postLogin(Request $request)
+	{
+		$this->validate($request, [
+			'email' => 'required|email', 'password' => 'required',
+		]);
+ 
+		$credentials = $request->only('email', 'password');
+ 
+		if ($this->auth->attempt($credentials, $request->has('remember')))
+		{
+			return redirect()->intended($this->redirectPath());
+		}
+ 
+		return redirect($this->loginPath())
+					->withInput($request->only('email', 'remember'))
+					->withErrors([
+						'email' => $this->getFailedLoginMessage(),
+					]);
+	}
+
+
     public function show($id)
     {
         //

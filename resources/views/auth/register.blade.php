@@ -1,16 +1,25 @@
 @extends('layouts.app')
 
+@section('content-css')
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
+@endsection
+
 @section('content')
+<br>
+<br>
+<br>    
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-7 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <!--<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
@@ -22,7 +31,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div>-->
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
@@ -77,6 +86,16 @@
                                 </div>
 
                         </div>
+
+                        <div class="form-group col-md-12">
+                            <label class="col-md-4 control-label">Accesos</label>
+                                <select name="accesos[]" id="js-example-tags" class="js-example-tags form-control select2-hidden-accessible acceso" multiple tabindex="-1" aria-hidden="true">
+                                    <?php foreach($accesos as $acceso)
+                                        echo "<option value=" .$acceso->id .">". $acceso->nombre ."</option>";
+                                    ?>
+                                </select>
+                            
+                            </div>
 
 
                         <div class="form-group">

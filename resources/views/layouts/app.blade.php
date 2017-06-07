@@ -12,6 +12,7 @@
 
     <!-- Styles -->
         <!-- Latest compiled and minified CSS -->
+        
     <link rel="stylesheet" href="{{ url('/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('/css/bootstrap-theme.css') }}">
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
         <link href="{{ url('/css/app.css') }}" rel="stylesheet">
 
+    @yield('content-css')
     <!-- Scripts -->
 
 
@@ -118,6 +120,11 @@
     <script src="{{ url('/js/bootstrap.js') }}"></script>
     <script src="{{ url('/js/bootstrap.min.js') }}"></script>
     <script src="{{ url('/js/npm.js') }}"></script>
+    
+
+
+
+    @yield('js')
 
 </body>
 </html>

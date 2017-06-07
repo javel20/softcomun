@@ -5,11 +5,10 @@ namespace Softcomun\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Softcomun\Http\Requests;
-use Softcomun\Acceso;
-// use Softcomun\Trabajador;
-// use Softcomun\User;
 
-class AccesosController extends Controller
+use Softcomun\DetalleUsers;
+
+class DetalleAccesoUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +17,7 @@ class AccesosController extends Controller
      */
     public function index()
     {
-        $accesos = Acceso::All();
-        return view('accesos.index')->with([
-            'accesos' => $accesos
-        ]);
+        //
     }
 
     /**
@@ -31,10 +27,7 @@ class AccesosController extends Controller
      */
     public function create()
     {
-        $acceso = new Acceso;
-        return view("accesos.create")->with([
-            'acceso' => $acceso
-        ]);
+        //
     }
 
     /**
@@ -45,15 +38,7 @@ class AccesosController extends Controller
      */
     public function store(Request $request)
     {
-        $acceso = new Acceso;
-
-        $acceso->nombre = $request->nombre;
-
-        if($acceso->save()){
-            return redirect("/accesos");
-        }else{
-            return view("/accesos.create",["acceso" => $acceso]);
-        }
+        //
     }
 
     /**
@@ -75,10 +60,7 @@ class AccesosController extends Controller
      */
     public function edit($id)
     {
-        $acceso = Acceso::find($id);
-        return view("accesos.edit")->with([
-            'acceso' =>$acceso
-        ]);
+        //
     }
 
     /**
@@ -90,9 +72,7 @@ class AccesosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $acceso= Acceso::find($id);
-
-        $acceso->dni = $request->dni;
+        //
     }
 
     /**
@@ -103,7 +83,6 @@ class AccesosController extends Controller
      */
     public function destroy($id)
     {
-        Acceso::Destroy($id);
-        return redirect('/accesos');
+        //
     }
 }

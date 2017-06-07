@@ -18,9 +18,13 @@ class TrabajadorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $trabajadors = Trabajador::trabajadors($request);
+        // dd($trabajadors);
+        return view("trabajadors.index")->with([
+             'trabajadors' => $trabajadors
+        ]);
     }
 
     /**
@@ -30,7 +34,17 @@ class TrabajadorsController extends Controller
      */
     public function create()
     {
-        //
+        $trabajador=new Trabajador;
+        $tipotrabajadors = Tipotrabajador::all();
+        // $locals = Local::all();
+        $users = User::all();
+
+        return view("trabajadors.create")->with([
+             'trabajador' => $trabajador, 
+             'tipotrabajadors' => $tipotrabajadors,
+            //  'locals' => $locals,
+             'users' => $users
+        ]);
     }
 
     /**
@@ -41,7 +55,45 @@ class TrabajadorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+
+            'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',  
+            'apellidopaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
+            'apellidomaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',
+            'dni' => 'required|digits:8',
+            'direccion' => 'required|min:3|max:60',    
+            'celular' => 'required|digits:9',  
+            'operador' => 'required',  
+            'estado' => 'required',  
+            'tipotrab' => 'required',  
+            // 'local' => 'required',
+
+        ]);
+
+
+        $trabajador = new Trabajador;
+
+        $trabajador->nombre = $request->nombre;
+        $trabajador->apellidopaterno = $request->apellidopaterno;
+        $trabajador->apellidomaterno = $request->apellidomaterno;
+        $trabajador->dni = $request->dni;
+        $trabajador->direccion = $request->direccion;
+        $trabajador->celular = $request->celular;
+        $trabajador->operador = $request->operador;
+        $trabajador->estado = $request->estado;
+        $trabajador->tipotrabajador_id = $request->tipotrab;
+        // $trabajador->local_id = $request->local;
+        
+
+       
+
+        if($trabajador->save()){
+            //  dd($trabajador);
+            return redirect("/trabajadors");
+        }else{
+            //  dd($trabajador);
+            return view("/trabajadors.create");
+        }
     }
 
     /**
@@ -63,7 +115,18 @@ class TrabajadorsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $trabajador= Trabajador::find($id);
+        $tipotrabajadors = Tipotrabajador::all();
+        // $locals = Local::all();
+        $users = User::all();
+        // dd($trabajador);
+
+        return view("trabajadors.edit")->with([
+             'trabajador' => $trabajador, 
+             'tipotrabajadors' => $tipotrabajadors,
+            //  'locals' => $locals,
+             'users' => $users
+        ]);
     }
 
     /**
@@ -75,7 +138,44 @@ class TrabajadorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+
+            'nombre' => 'required|min:3|max:60|regex:/^[óáéíúña-z-\s]+$/i',  
+            'apellidopaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',  
+            'apellidomaterno' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i',
+            'dni' => 'required|digits:8',  
+            'direccion' => 'required|min:3|max:60',    
+            'celular' => 'required|digits:9',  
+            'operador' => 'required',  
+            'estado' => 'required',  
+            // 'tipotrabajador' => 'required',  
+            // 'local' => 'required'
+
+        ]);
+
+
+        $trabajador= Trabajador::find($id);
+
+        $trabajador->nombre = $request->nombre;
+        $trabajador->apellidopaterno = $request->apellidopaterno;
+        $trabajador->apellidomaterno = $request->apellidomaterno;
+        $trabajador->dni = $request->dni;
+        $trabajador->direccion = $request->direccion;
+        $trabajador->celular = $request->celular;
+        $trabajador->operador = $request->operador;
+        $trabajador->estado = $request->estado;
+        $trabajador->tipotrabajador_id = $request->tipotrab;
+        // $trabajador->local_id = $request->local;
+        
+       
+
+        if($trabajador->save()){
+            //  dd($trabajador);
+            return redirect("/trabajadors");
+        }else{
+            //  dd($trabajador);
+            return view("/trabajadors.edit",["trabajador" => $trabajador]);
+        }
     }
 
     /**
@@ -86,6 +186,7 @@ class TrabajadorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Trabajador::Destroy($id);
+        return redirect('/trabajadors');
     }
 }
