@@ -21,8 +21,8 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
         <link href="{{ url('/css/app.css') }}" rel="stylesheet">
-
     @yield('content-css')
+
     <!-- Scripts -->
 
 
@@ -77,7 +77,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{{ url('/principal/ini') }}">DEMACO</a>
+                        <a class="navbar-brand" href="">DEMACO</a>
                         </div>
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

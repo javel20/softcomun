@@ -95,7 +95,7 @@
                                     ?>
                                 </select>
                             
-                            </div>
+                        </div>
 
 
                         <div class="form-group">
@@ -111,4 +111,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section("js")
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script type="text/javascript" src=<?php echo url("js\user\user.js")?>></script>
+
+    
 @endsection
