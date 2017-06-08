@@ -17,7 +17,11 @@ class ProyectosController extends Controller
      */
     public function index()
     {
-        //
+        $proyectos = Proyecto::All();
+        // dd($proyectos);
+        return view("proyectos.index")->with([
+             'proyectos' => $proyectos
+        ]);
     }
 
     /**
@@ -27,7 +31,10 @@ class ProyectosController extends Controller
      */
     public function create()
     {
-        //
+        $proyecto = new Proyecto;
+        return view("proyectos.create")->with([
+            'proyecto' => $proyecto
+        ]);
     }
 
     /**
@@ -38,7 +45,18 @@ class ProyectosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $proyecto = new Proyecto;
+
+        $proyecto->nombre = $request->nombre;
+        $proyecto->propietario = $request->propietario;
+        $proyecto->ubicacion = $request->ubicacion;
+        $proyecto->descripcion = $request->descripcion;
+
+        if($proyecto->save()){
+            return redirect("/proyectos");
+        }else{
+            return view("/proyectos.create",["proyecto" => $proyecto]);
+        }
     }
 
     /**

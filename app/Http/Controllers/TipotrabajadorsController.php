@@ -16,9 +16,12 @@ class TipotrabajadorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $tipotrabajadors = Tipotrabajador::like($request);
+        return view("tipotrabajadors.index")->with([
+            'tipotrabajadors'=> $tipotrabajadors
+            ]);
     }
 
     /**
@@ -28,7 +31,10 @@ class TipotrabajadorsController extends Controller
      */
     public function create()
     {
-        //
+        $tipotrabajador=new Tipotrabajador;
+        return view("tipotrabajadors.create")->with([
+            'tipotrabajador'=>$tipotrabajador
+            ]);
     }
 
     /**
@@ -39,7 +45,23 @@ class TipotrabajadorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            
+            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i|unique:tipotrabajadors',  
+            'descripcion' => 'max:100'
+
+        ]); 
+
+        $tipotrabajador = new Tipotrabajador;
+
+        $tipotrabajador->nombre = $request->nombre;
+        $tipotrabajador->descripcion = $request->descripcion;
+
+        if($tipotrabajador->save()){
+            return redirect("/tipotrabajadors");
+        }else{
+            return view("/tipotrabajadors.create",["tipotrabajador" => $tipotrabajador]);
+        }
     }
 
     /**
@@ -61,7 +83,10 @@ class TipotrabajadorsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tipotrabajador= Tipotrabajador::find($id);
+        return view("tipotrabajadors.edit")->with([
+            'tipotrabajador'=>$tipotrabajador
+            ]);
     }
 
     /**
@@ -73,7 +98,22 @@ class TipotrabajadorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            
+            'nombre' => 'required|min:3|max:30|regex:/^[óáéíúña-z-\s]+$/i|unique:tipotrabajadors',  
+            'descripcion' => 'max:100'
+
+        ]); 
+
+        $tipotrabajador= Tipotrabajador::find($id);
+        $tipotrabajador->nombre = $request->nombre;
+        $tipotrabajador->descripcion = $request->descripcion;
+
+        if($tipotrabajador->save()){
+            return redirect("/tipotrabajadors");
+        }else{
+            return view("/tipotrabajadors.create",["tipotrabajador" => $tipotrabajador]);
+        }
     }
 
     /**
@@ -84,6 +124,7 @@ class TipotrabajadorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tipotrabajador::Destroy($id);
+        return redirect('/tipotrabajadors');
     }
 }

@@ -43,11 +43,26 @@
           </div>
         </li>
 
+        
         <li class="menu">
           <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed">
-          <span class="glyphicon glyphicon-chevron-right"></span> Trabajadores <span class="caret pull-right"></span>
+          <span class="glyphicon glyphicon-chevron-right"></span> Tipo Trabajadores <span class="caret pull-right"></span>
           </a>
           <div class="collapse" id="toggleDemo3" style="height: 0px;">
+            <ul class="nav nav-list">
+              <li><a class="menua" href="{{ url('/tipotrabajadors/create') }}">Crear</a></li>
+              <li><a class="menua" href="{{ url('/tipotrabajadors') }}">Listado</a></li>
+              
+            </ul>
+          </div>
+        </li>
+
+
+        <li class="menu">
+          <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
+          <span class="glyphicon glyphicon-chevron-right"></span> Trabajadores <span class="caret pull-right"></span>
+          </a>
+          <div class="collapse" id="toggleDemo4" style="height: 0px;">
             <ul class="nav nav-list">
               <li><a class="menua" href="{{ url('/trabajadors/create') }}">Crear</a></li>
               <li><a class="menua" href="{{ url('/trabajadors') }}">Listado</a></li>
@@ -58,10 +73,10 @@
 
 
         <li class="menu">
-          <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
+          <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo5" data-parent="#sidenav01" class="collapsed">
           <span class="glyphicon glyphicon-chevron-right"></span> Usuarios <span class="caret pull-right"></span>
           </a>
-          <div class="collapse" id="toggleDemo4" style="height: 0px;">
+          <div class="collapse" id="toggleDemo5" style="height: 0px;">
             <ul class="nav nav-list">
               <li><a class="menua" href="{{ url('/users/create') }}">Crear</a></li>
               <li><a class="menua" href="{{ url('/users') }}">Listado</a></li>

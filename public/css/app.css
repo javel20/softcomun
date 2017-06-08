@@ -44,3 +44,6 @@ a:hover{
     margin:45px;
 }
 
+span .select2{
+    width: 100px!important;
+}

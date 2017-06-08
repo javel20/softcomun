@@ -34,7 +34,7 @@ class User extends Authenticatable
 
     public function accesos()
     {
-        return $this->belongsToMany('hosp\Acceso');
+        return $this->belongsToMany('Softcomun\Acceso');
     }
 
 

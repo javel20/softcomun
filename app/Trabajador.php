@@ -18,7 +18,7 @@ class Trabajador extends Model
 
     public function proyecto()
     {
-        return $this->belongsToMany('hosp\Proyecto');
+        return $this->belongsToMany('Softcomun\Proyecto');
     }
     
 

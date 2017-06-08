@@ -8,6 +8,6 @@ class Acceso extends Model
 {
     public function user()
     {
-        return $this->belongsToMany('hosp\User');
+        return $this->belongsToMany('Softcomun\User');
     }
 }

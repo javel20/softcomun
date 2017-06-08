@@ -35,6 +35,8 @@ class UsersController extends Controller
         $trabajador = Trabajador::ListaTrabajador();
         $accesos = Acceso::All();
 
+        
+
         return view("auth.register")->with([
             'users' => $users,
             'trabajador' => $trabajador,
@@ -52,11 +54,11 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $user = new User;
-        // dd($request);
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->trabajador_id = $request->trabajador;
 
+        // dd($request);
 
         if($user->save()){
             //  dd($user);

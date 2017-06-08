@@ -16,7 +16,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/users') }}">
                         {{ csrf_field() }}
 
                         <!--<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -89,7 +89,7 @@
 
                         <div class="form-group col-md-12">
                             <label class="col-md-4 control-label">Accesos</label>
-                                <select name="accesos[]" id="js-example-tags" class="js-example-tags form-control select2-hidden-accessible acceso" multiple tabindex="-1" aria-hidden="true">
+                                <select name="accesos[]" id="js-example-tags" class="js-example-tags form-control select2-hidden-accessible" multiple tabindex="-1" aria-hidden="true">
                                     <?php foreach($accesos as $acceso)
                                         echo "<option value=" .$acceso->id .">". $acceso->nombre ."</option>";
                                     ?>
@@ -100,6 +100,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
