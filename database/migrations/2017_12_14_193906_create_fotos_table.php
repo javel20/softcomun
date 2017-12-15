@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDetallestrabajadorproyectoTable extends Migration
+class CreateFotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreateDetallestrabajadorproyectoTable extends Migration
      */
     public function up()
     {
-        Schema::create('proyecto_trabajador', function (Blueprint $table) {
-            $table->integer('trabajador_id')->unsigned();
-            $table->foreign('trabajador_id')->references('id')->on('trabajadors');
+        Schema::create('fotos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nombre',80);
+            $table->string('fecha',10);
+
             $table->integer('proyecto_id')->unsigned();
             $table->foreign('proyecto_id')->references('id')->on('proyectos');
+            
+            $table->timestamps();
         });
     }
 
@@ -28,6 +32,6 @@ class CreateDetallestrabajadorproyectoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proyecto_trabajador');
+        Schema::dropIfExists('fotos');
     }
 }

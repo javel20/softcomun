@@ -15,11 +15,19 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name', 100);
+            //$table->string('apellidopat',80);
+            //$table->string('apellidomat',80);
+            //$table->string('DNI',8);
+            //$table->string('direccion',80);
+            //$table->string('celular',9);
+            //$table->string('operador',20);
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('estado',80);
 
-            // $table->integer('trabajador_id')->unsigned();
-            // $table->foreign('trabajador_id')->references('id')->on('trabajadors');
+            //$table->integer('role_id')->unsigned();
+            //$table->foreign('role_id')->references('id')->on('roles');
 
             $table->rememberToken();
             $table->timestamps();

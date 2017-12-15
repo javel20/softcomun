@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTareasTable extends Migration
+class CreateDocplanosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,10 @@ class CreateTareasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tareas', function (Blueprint $table) {
+        Schema::create('docpĺanos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre',150);
-            $table->string('responsable',150);
-            $table->string('avance',150);
-            $table->string('fechai',10);
-            $table->string('fechaf',10);
-            $table->string('estado',80);
-
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('nombre');
+            $table->string('fecha');
 
             $table->integer('proyecto_id')->unsigned();
             $table->foreign('proyecto_id')->references('id')->on('proyectos');
@@ -39,6 +32,6 @@ class CreateTareasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tareas');
+        Schema::dropIfExists('docpĺanos');
     }
 }
