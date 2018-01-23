@@ -70,7 +70,7 @@
                         </div>
 
 
-                        <div class="form-group">
+                       {{-- <div class="form-group">
                             <label class="col-md-4 control-label">Trabajador</label>
                                 <div class="col-md-6">
                                     <select id="trabajador" class="form-control" name="trabajador"  value={{$users->trabajador_id}}>
@@ -85,7 +85,7 @@
                                     </select>
                                 </div>
 
-                        </div>
+                        </div>--}}  
 
                         <div class="form-group col-md-12">
                             <label class="col-md-4 control-label">Accesos</label>

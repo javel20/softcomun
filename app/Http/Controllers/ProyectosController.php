@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Softcomun\Http\Requests;
 
 use Softcomun\Proyecto;
-use Softcomun\Tipotrabajador;
+use Softcomun\Role;
 
 class ProyectosController extends Controller
 {
@@ -32,6 +32,7 @@ class ProyectosController extends Controller
     public function create()
     {
         $proyecto = new Proyecto;
+        $roles = Role::pluck('display_name','id');
         return view("proyectos.create")->with([
             'proyecto' => $proyecto
         ]);
@@ -51,8 +52,12 @@ class ProyectosController extends Controller
         $proyecto->propietario = $request->propietario;
         $proyecto->ubicacion = $request->ubicacion;
         $proyecto->descripcion = $request->descripcion;
-
+        $request->users = Auth()->user()->id;
+        //dd($proyecto->users());
+       
+        
         if($proyecto->save()){
+            $proyecto->users()->attach($request->users);
             return redirect("/proyectos");
         }else{
             return view("/proyectos.create",["proyecto" => $proyecto]);
@@ -78,7 +83,11 @@ class ProyectosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $proyecto = Proyecto::find($id);
+        return view("proyectos.edit")->with([
+            'proyecto' =>$proyecto
+        ]);
+
     }
 
     /**
@@ -90,7 +99,20 @@ class ProyectosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $proyecto = Proyecto::find($id);
+
+        $proyecto->nombre = $request->nombre;
+        $proyecto->propietario = $request->propietario;
+        $proyecto->ubicacion = $request->ubicacion;
+        $proyecto->descripcion = $request->descripcion;
+        $request->users = Auth()->user()->id;
+
+        if($proyecto->save()){
+            //$proyecto->users()->sync($request->users);
+            return redirect("/proyectos");
+        }else{
+            return view("/proyectos.create",["proyecto" => $proyecto]);
+        }
     }
 
     /**
@@ -101,6 +123,7 @@ class ProyectosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Proyecto::Destroy($id);
+        return redirect('/proyectos');
     }
 }

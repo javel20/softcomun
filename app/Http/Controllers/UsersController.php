@@ -32,14 +32,14 @@ class UsersController extends Controller
     public function create()
     {
         $users = new User;
-        $trabajador = Trabajador::ListaTrabajador();
+
         $accesos = Acceso::All();
 
         
 
         return view("auth.register")->with([
             'users' => $users,
-            'trabajador' => $trabajador,
+
             'accesos' => $accesos
 
         ]);

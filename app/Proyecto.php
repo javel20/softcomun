@@ -15,7 +15,7 @@ class Proyecto extends Model
     
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class,'proyectos_users');
     } 
 
     public function comunicacion()

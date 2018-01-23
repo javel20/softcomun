@@ -29,6 +29,19 @@
 
 
 
+        <li class="menu">
+          <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo1" data-parent="#sidenav01" class="collapsed">
+          <span class="glyphicon glyphicon-chevron-right"></span> Accesos <span class="caret pull-right"></span>
+          </a>
+          <div class="collapse" id="toggleDemo1" style="height: 0px;">
+            <ul class="nav nav-list">
+              <li><a class="menua" href="{{ url('/accesos/create') }}">Crear</a></li>
+              <li><a class="menua" href="{{ url('/accesos') }}">Listado</a></li>
+              
+            </ul>
+          </div>
+        </li>
+
 
         <li class="menu">
           <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
@@ -88,73 +101,59 @@
 
 
  
-       <li class="menu"> 
-
-            <ul class="nav nav-list ">
-                <!--<div class="collapse" id="toggleDemo" style="height: 0px;">-->
-                    <li class="">
-                        <a class="" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
-                            <span class="glyphicon glyphicon-chevron-right"></span> General <span class=""></span>
-                        </a>
-                    </li>
-                <!--</div>-->
-
-            </ul>
+        <li class="menu"> 
+            <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo6" data-parent="#sidenav01" class="collapsed">
+            <span class="glyphicon glyphicon-chevron-right"></span> Comunicaciones <span class="caret pull-right"></span>
+            </a>
+            <div class="collapse" id="toggleDemo6" style="height: 0px;">
+                <ul class="nav nav-list">
+                <li><a class="menua" href="{{ url('/comunicacions/create') }}">Crear</a></li>
+                <li><a class="menua" href="{{ url('/comunicacions') }}">Listado</a></li>
+                
+                </ul>
+            </div>
         </li>
 
 
         <li class="menu"> 
-
-            <ul class="nav nav-list">
-            
-                <li>
-                    <a class="" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
-                        <span class="glyphicon glyphicon-chevron-right"></span> Integrantes <span class=""></span>
-                    </a>
-                </li>
-
-            </ul>
+            <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo7" data-parent="#sidenav01" class="collapsed">
+            <span class="glyphicon glyphicon-chevron-right"></span> Tareas <span class="caret pull-right"></span>
+            </a>
+            <div class="collapse" id="toggleDemo7" style="height: 0px;">
+                <ul class="nav nav-list">
+                <li><a class="menua" href="{{ url('/tareas/create') }}">Crear</a></li>
+                <li><a class="menua" href="{{ url('/tareas') }}">Listado</a></li>
+                
+                </ul>
+            </div>
         </li>
 
         <li class="menu"> 
-
-            <ul class="nav nav-list">
-            
-                <li>
-                    <a class="" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
-                        <span class="glyphicon glyphicon-chevron-right"></span> Tareas <span class=""></span>
-                    </a>
-                </li>
-
-            </ul>
+            <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo8" data-parent="#sidenav01" class="collapsed">
+            <span class="glyphicon glyphicon-chevron-right"></span> Documentos-Planos <span class="caret pull-right"></span>
+            </a>
+            <div class="collapse" id="toggleDemo8" style="height: 0px;">
+                <ul class="nav nav-list">
+                <li><a class="menua" href="{{ url('/docplanos/create') }}">Crear</a></li>
+                <li><a class="menua" href="{{ url('/docplanos') }}">Listado</a></li>
+                
+                </ul>
+            </div>
         </li>
 
         <li class="menu"> 
-
-            <ul class="nav nav-list">
-            
-                <li>
-                    <a class="" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
-                        <span class="glyphicon glyphicon-chevron-right"></span> Comunicaciones <span class=""></span>
-                    </a>
-                </li>
-
-            </ul>
+            <a href="" onclick="return false;" data-toggle="collapse" data-target="#toggleDemo9" data-parent="#sidenav01" class="collapsed">
+            <span class="glyphicon glyphicon-chevron-right"></span> Fotos <span class="caret pull-right"></span>
+            </a>
+            <div class="collapse" id="toggleDemo9" style="height: 0px;">
+                <ul class="nav nav-list">
+                <li><a class="menua" href="{{ url('/fotos/create') }}">Crear</a></li>
+                <li><a class="menua" href="{{ url('/fotos') }}">Listado</a></li>
+                
+                </ul>
+            </div>
         </li>
 
-
-        <li class="menu"> 
-
-            <ul class="nav nav-list">
-            
-                <li>
-                    <a class="" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed" href="{{ url('/home') }}">
-                        <span class="glyphicon glyphicon-chevron-right"></span> Fotos <span class=""></span>
-                    </a>
-                </li>
-
-            </ul>
-        </li>
 
         
 
