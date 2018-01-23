@@ -24,10 +24,10 @@ class CreateUsersTable extends Migration
             //$table->string('operador',20);
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('estado',80);
+            $table->string('estado',80)->default('Activo');
 
-            //$table->integer('role_id')->unsigned();
-            //$table->foreign('role_id')->references('id')->on('roles');
+            $table->integer('role_id')->unsigned();
+            $table->foreign('role_id')->references('id')->on('roles');
 
             $table->rememberToken();
             $table->timestamps();

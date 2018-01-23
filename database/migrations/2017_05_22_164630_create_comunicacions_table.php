@@ -17,6 +17,8 @@ class CreateComunicacionsTable extends Migration
             $table->increments('id');
             $table->string('correo',150);
             $table->string('descripcion',150);
+            $table->integer('user_id');
+
             $table->integer('proyecto_id')->unsigned();
             $table->foreign('proyecto_id')->references('id')->on('proyectos');
             $table->timestamps();

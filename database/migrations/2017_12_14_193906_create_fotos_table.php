@@ -17,6 +17,7 @@ class CreateFotosTable extends Migration
             $table->increments('id');
             $table->string('nombre',80);
             $table->string('fecha',10);
+            $table->integer('user_id');
 
             $table->integer('proyecto_id')->unsigned();
             $table->foreign('proyecto_id')->references('id')->on('proyectos');

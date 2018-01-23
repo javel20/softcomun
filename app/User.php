@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'trabajador_id',
+        'name', 'email', 'password', 'role_id',
     ];
 
     /**
@@ -27,15 +27,20 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function trabajador()
+    public function role()
     {
-        return $this->hasOne(Trabajador::class);
+        return $this->belongsTo(Role::class);
     }
 
-    public function accesos()
+    /* public function accesos()
     {
         return $this->belongsToMany('Softcomun\Acceso');
-    }
+    } */
+
+    public function proyectos()
+    {
+        return $this->belongsToMany(Proyecto::class);
+    } 
 
 
     public function scopeUsers($query)

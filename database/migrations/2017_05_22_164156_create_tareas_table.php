@@ -20,10 +20,8 @@ class CreateTareasTable extends Migration
             $table->string('avance',150);
             $table->string('fechai',10);
             $table->string('fechaf',10);
-            $table->string('estado',80);
-
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('estado',80)->default('Activo');
+            $table->integer('user_id');
 
             $table->integer('proyecto_id')->unsigned();
             $table->foreign('proyecto_id')->references('id')->on('proyectos');

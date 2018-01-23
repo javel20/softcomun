@@ -6,12 +6,39 @@ use Illuminate\Database\Eloquent\Model;
 
 class Proyecto extends Model
 {
-    public function trabajador()
+
+    protected $fillable = [
+        'nombre', 'propietario', 'ubicacion', 'descripcion',
+    ];
+
+
+    
+    public function users()
     {
-        return $this->belongsToMany('Softcomun\Trabajador');
+        return $this->belongsToMany(User::class);
+    } 
+
+    public function comunicacion()
+    {
+        return $this->hasMany(Comunicacion::class);
     }
 
+    public function tarea()
+    {
+        return $this->hasMany(Tarea::class);
+    } 
 
+    public function foto()
+    {
+        return $this->hasMany(Foto::class);
+    } 
+
+    public function docplanos()
+    {
+        return $this->hasMany(DocPlanos::class);
+    } 
+
+    /* 
     public function scopeProyectos($query, $dato)
     {
         return $query->join('tipotrabajadors', 'trabajadors.tipotrabajador_id', '=' ,'tipotrabajadors.id')
@@ -24,7 +51,7 @@ class Proyecto extends Model
                     ->select('trabajadors.*', 'tipotrabajadors.nombre as nombrett')
                     ->paginate(7);
 
-    }
+    } */
 
 }
 

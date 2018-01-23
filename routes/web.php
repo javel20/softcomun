@@ -31,15 +31,15 @@ Route::get('/principal/nosotros', function () {
 
     Route::resource('users','UsersController');
 
-    Route::resource('trabajadors','TrabajadorsController');
-
-    Route::resource('tipotrabajadors','TipotrabajadorsController');
-
     Route::resource('proyectos','ProyectosController');
 
     Route::resource('comunicacions','ComunicacionsController');
 
     Route::resource('tareas','TareasController');
+
+    Route::resource('fotos','FotosController');
+
+    Route::resource('docplanos','DocPlanosController');
 
     Route::post('userLogeo','Auth\LoginController@postLogin');
 

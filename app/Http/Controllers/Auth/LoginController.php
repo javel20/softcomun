@@ -47,6 +47,7 @@ class LoginController extends Controller
         // dd("asdasd");
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // Authentication passed...
+            //dd('asfadf');
             return redirect()->intended('dashboard');
         }
     }

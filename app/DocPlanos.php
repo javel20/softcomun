@@ -4,10 +4,10 @@ namespace Softcomun;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tarea extends Model
+class DocPlanos extends Model
 {
     protected $fillable = [
-        'nombre', 'responsable', 'avance', 'fechai', 'fechaf', 'estado', 'user_id', 'proyecto_id',
+        'nombre', 'fecha', 'user_id', 'proyecto_id',
     ];
 
 

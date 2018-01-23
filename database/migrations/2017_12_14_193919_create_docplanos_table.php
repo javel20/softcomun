@@ -17,6 +17,7 @@ class CreateDocplanosTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('fecha');
+            $table->integer('user_id');
 
             $table->integer('proyecto_id')->unsigned();
             $table->foreign('proyecto_id')->references('id')->on('proyectos');
