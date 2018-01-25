@@ -3,6 +3,11 @@
 namespace Softcomun\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Softcomun\Http\Requests;
+
+use Softcomun\Proyecto;
+use Softcomun\Comunicacion;
+use Softcomun\ProyectoUser;
 
 class ComunicacionsController extends Controller
 {
@@ -13,7 +18,11 @@ class ComunicacionsController extends Controller
      */
     public function index()
     {
-        //
+        $comunicacions = Comunicacion::All();
+        // dd($comunicacions);
+        return view("comunicacions.index")->with([
+             'comunicacions' => $comunicacions
+        ]);
     }
 
     /**
@@ -23,7 +32,11 @@ class ComunicacionsController extends Controller
      */
     public function create()
     {
-        //
+        $comunicacion = new Comunicacion;
+        //$roles = Role::pluck('display_name','id');
+        return view("comunicacions.create")->with([
+            'comunicacion' => $comunicacion
+        ]);
     }
 
     /**
@@ -34,7 +47,29 @@ class ComunicacionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comunicacion = new Comunicacion;
+
+        $comunicacion->correo = $request->correo;
+
+        $comunicacion->descripcion = $request->descripcion;
+
+        $proyectos = ProyectoUser::all();
+        //if($proyecto->id=1)
+        foreach($proyectos as $proyecto) 
+
+            if($proyecto->user_id=Auth()->user()){
+                $idproyecto=$proyecto->proyecto_id;
+                //dd($idproyecto);
+            }
+
+        $comunicacion->proyecto_id = $idproyecto;
+       
+        
+        if($comunicacion->save()){
+            return redirect("/comunicacions");
+        }else{
+            return view("/comunicacions.create",["comunicacion" => $comunicacion]);
+        }
     }
 
     /**
@@ -56,7 +91,10 @@ class ComunicacionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comunicacion = Comunicacion::find($id);
+        return view("comunicacions.edit")->with([
+            'comunicacion' =>$comunicacion
+        ]);
     }
 
     /**
@@ -68,7 +106,19 @@ class ComunicacionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comunicacion = Comunicacion::find($id);
+
+        $comunicacion->correo = $request->correo;
+
+        $comunicacion->descripcion = $request->descripcion;
+        
+
+        if($comunicacion->save()){
+            //$comunicacion->users()->sync($request->users);
+            return redirect("/comunicacions");
+        }else{
+            return view("/comunicacions.create",["comunicacion" => $comunicacion]);
+        }
     }
 
     /**
@@ -79,6 +129,7 @@ class ComunicacionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Comunicacion::Destroy($id);
+        return redirect('/comunicacions');
     }
 }

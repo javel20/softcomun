@@ -5,12 +5,12 @@
     <div class="big-padding text-center blue-grey white-text">
     <br>
 <br>
-        <h1>Proyectos</h1>
+        <h1>Comunicaciones</h1>
     <br>
     
     </div>
 
-    @include('proyectos.buscar')
+    @include('comunicacions.buscar')
 
     <div class="table-responsive">
 
@@ -18,26 +18,24 @@
             <thead>
                 <tr>
 
-                    <td>Nombre</td>
-                    <td>Propietario</td>
-                    <td>Ubicacion</td>
+                    <td>Correo</td>
+
                     <td>Descripcion</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
             <tbody>
-                @foreach($proyectos as $proyecto)
+                @foreach($comunicacions as $comunicacion)
                 <tr>
 
-                    <td>{{$proyecto->nombre}}</td>
-                    <td>{{$proyecto->propietario}}</td>
-                    <td>{{$proyecto->ubicacion}}</td>
-                    <td>{{$proyecto->descripcion}}</td>
+                    <td>{{$comunicacion->correo}}</td>
+
+                    <td>{{$comunicacion->descripcion}}</td>
                 
 
                     <td>
-                        <a href="{{url('/proyectos/'.$proyecto->id.'/edit')}}">Editar</a>
-                        @include('proyectos.delete',['proyecto' => $proyecto])
+                        <a href="{{url('/comunicacions/'.$comunicacion->id.'/edit')}}">Editar</a>
+                        @include('comunicacions.delete',['comunicacion' => $comunicacion])
                     </td>
                 </tr>
                 @endforeach

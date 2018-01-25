@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Proyecto::class);
     } 
 
+    public function proyectoUser()
+    {
+        return $this->hasMany(ProyectoUser::class);
+    }
+
 
     public function scopeUsers($query)
     {

@@ -52,6 +52,7 @@ class ProyectosController extends Controller
         $proyecto->propietario = $request->propietario;
         $proyecto->ubicacion = $request->ubicacion;
         $proyecto->descripcion = $request->descripcion;
+        $proyecto->user_id = Auth()->user()->id;
         $request->users = Auth()->user()->id;
         //dd($proyecto->users());
        
