@@ -3,6 +3,12 @@
 namespace Softcomun\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Softcomun\Http\Requests;
+
+use Softcomun\Proyecto;
+use Softcomun\Tarea;
+use Softcomun\User;
+use Softcomun\ProyectoUser;
 
 class TareasController extends Controller
 {
@@ -13,7 +19,13 @@ class TareasController extends Controller
      */
     public function index()
     {
-        //
+        $tareas = Tarea::All();
+        $users = User::All();
+        // dd($tareas);
+        return view("tareas.index")->with([
+             'tareas' => $tareas,
+             'users' => $users
+        ]);
     }
 
     /**
@@ -23,7 +35,11 @@ class TareasController extends Controller
      */
     public function create()
     {
-        //
+        $tarea = new Tarea;
+        //$roles = Role::pluck('display_name','id');
+        return view("tareas.create")->with([
+            'tarea' => $tarea
+        ]);
     }
 
     /**
@@ -34,7 +50,25 @@ class TareasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tarea = (new Tarea)->fill($request->all());
+        $tarea->user_id = Auth()->user()->id;
+        $proyectos = ProyectoUser::all();
+        //if($proyecto->id=1)
+        foreach($proyectos as $proyecto) 
+
+            if($proyecto->user_id=Auth()->user()){
+                $idproyecto=$proyecto->proyecto_id;
+                //dd($idproyecto);
+            }
+
+        $tarea->proyecto_id = $idproyecto;
+       
+        
+        if($tarea->save()){
+            return redirect("/tareas");
+        }else{
+            return view("/tareas.create",["tarea" => $tarea]);
+        }
     }
 
     /**
@@ -56,7 +90,10 @@ class TareasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tarea = Tarea::find($id);
+        return view("tareas.edit")->with([
+            'tarea' =>$tarea
+        ]);
     }
 
     /**
@@ -68,7 +105,22 @@ class TareasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tarea = Tarea::find($id);
+
+        $tarea->nombre = $request->nombre;
+        $tarea->user_id = Auth()->user()->id;
+        $tarea->avance = $request->avance;
+        $tarea->fechai = $request->fechai;
+        $tarea->fechaf = $request->fechaf;
+        $tarea->estado = $request->estado;
+        
+
+        if($tarea->save()){
+            //$tarea->users()->sync($request->users);
+            return redirect("/tareas");
+        }else{
+            return view("/tareas.create",["tarea" => $tarea]);
+        }
     }
 
     /**
@@ -79,6 +131,7 @@ class TareasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tarea::Destroy($id);
+        return redirect('/tareas');
     }
 }
